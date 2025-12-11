@@ -32,10 +32,22 @@ class _MyAppState extends State<MyApp> {
             physics: NeverScrollableScrollPhysics(), // 스와이프 비활성화
             // children 설정 - 각 탭에 해당하는 위젯들
             children : <Widget> [
-              Container(),
-              Container(),
-              Container(),
-              Container(),
+              Container(child : Center(
+                  child : Text('Home'),
+                )
+              ),
+              Container(child : Center(
+                  child : Text('Search'),
+                )
+              ),
+              Container(child : Center(
+                  child : Text('Save'),
+                )
+              ),
+              Container(child : Center(
+                  child : Text('More'),
+                )
+              ),
             ]
           ),
           // Navigation Bar 설정
