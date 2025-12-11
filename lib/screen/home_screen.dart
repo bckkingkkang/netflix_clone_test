@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:netflix_clone_test/model/model_movie.dart';
 
 // 상단바 + 콘텐츠 영역을 포함하는 HomeScreen 위젯
 
@@ -9,6 +10,20 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
+  // 영화 더미 데이터 생성
+  List<Movie> movies = [
+    Movie.fromMap(
+      {
+        // movies 안에 들어갈 샘플 데이터
+        'title' : '사랑의 불시착',
+        'keyword' : '사랑/로맨스',
+        'poster' : 'images/test_movie_1.jpg',
+        'like' : false,
+      }
+    ) 
+  ];
+
   @override
   void initState() {
     super.initState();
