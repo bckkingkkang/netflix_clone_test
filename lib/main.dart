@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:netflix_clone_test/screen/home_screen.dart';
 import 'package:netflix_clone_test/widget/bottom_bar.dart';
 
 void main() => runApp(MyApp());
@@ -32,10 +33,7 @@ class _MyAppState extends State<MyApp> {
             physics: NeverScrollableScrollPhysics(), // 스와이프 비활성화
             // children 설정 - 각 탭에 해당하는 위젯들
             children : <Widget> [
-              Container(child : Center(
-                  child : Text('Home'),
-                )
-              ),
+              HomeScreen(),
               Container(child : Center(
                   child : Text('Search'),
                 )
