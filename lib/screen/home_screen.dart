@@ -27,11 +27,35 @@ class TopBar extends StatelessWidget {
     return Container(
       padding : EdgeInsets.fromLTRB(20, 7, 20, 7),
       child : Row(
+        // 각 항목들 사이에 동일한 간격 부여
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children : <Widget> [
           Image.asset(
             'images/Netflix_test.png', 
             fit: BoxFit.contain, 
             height: 25,
+          ),
+          // 텍스트 부분은 Container로 감싸서 여백 조절
+          Container(
+            padding : EdgeInsets.only(right : 1),
+            child : Text(
+              'TV 프로그램',
+              style : TextStyle(fontSize : 14),
+            ),
+          ),
+          Container(
+            padding : EdgeInsets.only(right : 1),
+            child : Text(
+              '영화',
+              style : TextStyle(fontSize : 14),
+            ),
+          ),
+          Container(
+            padding : EdgeInsets.only(right : 1),
+            child : Text(
+              '내가 찜한 콘텐츠',
+              style : TextStyle(fontSize : 14),
+            ),
           ),
         ]
       )
