@@ -143,3 +143,25 @@ class _CarouselImageState extends State<CarouselImage> {
     );
   }
 }
+
+// 지금 캐러셀에서 몇 번째 페이지를 보고 있는지”를 시각적으로 알려주기 위해 indicator 위젯을 별도로 구현
+List<Widget> makeIndicator(List list, int _currentPage) {
+  List<Widget> results = [];
+  for (var i = 0; i < list.length; i++) {
+    results.add(Container(
+      width : 8,
+      height : 8,
+      margin : EdgeInsets.symmetric(
+        vertical: 10.0,
+        horizontal: 2.0,
+      ),
+      decoration : BoxDecoration(
+        shape : BoxShape.circle,
+        color : _currentPage == i
+          ? Color.fromRGBO(255, 255, 255, 0.9)
+          : Color.fromRGBO(255, 255, 255, 0.4),
+      ),
+    ));
+  }
+  return results;
+}
