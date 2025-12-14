@@ -68,8 +68,10 @@ class _CarouselImageState extends State<CarouselImage> {
           ),
           // 이미지 하단 키워드(설명) 표시
           Container(
+            padding : EdgeInsets.fromLTRB(0, 10, 0, 3),
             child : Text(
               _currentKeyword,
+              style : TextStyle(fontSize : 11),
             ),
           )
         ]
