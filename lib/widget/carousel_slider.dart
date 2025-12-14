@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:netflix_clone_test/model/model_movie.dart';
 
@@ -47,6 +48,27 @@ class _CarouselImageState extends State<CarouselImage> {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    // carousel_slider 패키지 설치
+    return Container(
+      child : Column(
+        children : <Widget> [
+          Container(
+            padding : EdgeInsets.all(20),
+          ),
+          CarouselSlider(
+            items: images,
+            options: CarouselOptions(
+              onPageChanged: (index, reason) {
+                setState(() {
+                  _currentPage = index;
+                  _currentKeyword = keywords[_currentPage];
+                });
+              },
+            ),
+          ),
+          // 이미지 하단 키워드(설명) 표시
+        ]
+      )
+    );
   }
 }
