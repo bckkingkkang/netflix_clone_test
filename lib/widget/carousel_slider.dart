@@ -138,6 +138,12 @@ class _CarouselImageState extends State<CarouselImage> {
               ]
             ),
           ),
+          // 캐러셀 위치 표시 인디케이터
+          Container(child : Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children : makeIndicator(likes, _currentPage)
+            )
+          )
         ]
       )
     );
