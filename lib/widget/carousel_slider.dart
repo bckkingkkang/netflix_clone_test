@@ -37,7 +37,7 @@ class _CarouselImageState extends State<CarouselImage> {
     // 원본 영화 데이터
     movies = widget.movies;
     // UI용 이미지 위젯
-    images = movies.map((m) => Image.asset('./images/' + m.poster)).toList();
+    images = movies.map((m) => Image.asset(m.poster)).toList();
     // 키워드 리스트
     keywords = movies.map((m) => m.keyword).toList();
     // 좋아요 상태 리스트
@@ -67,6 +67,11 @@ class _CarouselImageState extends State<CarouselImage> {
             ),
           ),
           // 이미지 하단 키워드(설명) 표시
+          Container(
+            child : Text(
+              _currentKeyword,
+            ),
+          )
         ]
       )
     );
