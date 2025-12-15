@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:netflix_clone_test/model/model_movie.dart';
 import 'package:netflix_clone_test/widget/carousel_slider.dart';
+import 'package:netflix_clone_test/widget/circle_slider.dart';
 
 // 상단바 + 콘텐츠 영역을 포함하는 HomeScreen 위젯
 
@@ -63,10 +64,12 @@ class _HomeScreenState extends State<HomeScreen> {
     // 기존 TopBar를 지우고 ListView 안에 Stack을 넣는 구조로 수정
     return ListView(children : <Widget>[
       Stack(children : <Widget>[
-        // Stack의 경우 children 안에 선언한 순서대로 쌓임
-        CarouselImage(movies: movies),
-        TopBar(),
-      ])
+          // Stack의 경우 children 안에 선언한 순서대로 쌓임
+          CarouselImage(movies: movies),
+          TopBar(),
+        ]
+      ),
+      CircleSlider(movies: movies)
     ]);
   }
 }
