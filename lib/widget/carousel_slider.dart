@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:netflix_clone_test/model/model_movie.dart';
+import 'package:netflix_clone_test/screen/detail_screen.dart';
 
 // 해당 위젯은 단순히 이미지를 보여주는 역할뿐만 아니라 찜하기 기능, 그리고 정보 버튼을 통해 
 // 디테일 페이지를 띄우는 기능을 담고 있기 때문에 StatefulWidget으로 구현
@@ -127,7 +128,17 @@ class _CarouselImageState extends State<CarouselImage> {
                   padding : EdgeInsets.only(right : 10),
                   child : Column(
                     children : <Widget>[
-                      IconButton(icon : Icon(Icons.info), onPressed : () {},),
+                      IconButton(icon : Icon(Icons.info), onPressed : () {
+                          // detail_screen.dart의 DetailScreen으로 이동
+                          Navigator.of(context).push(MaterialPageRoute<Null>(
+                            fullscreenDialog: true, 
+                            builder : (BuildContext context) {
+                              return DetailScreen(
+                                movie : movies[_currentPage],
+                              );
+                            }));
+                        },
+                      ),
                       Text(
                         '정보',
                         style : TextStyle(fontSize:11),
