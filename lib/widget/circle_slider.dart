@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:netflix_clone_test/model/model_movie.dart';
+import 'package:netflix_clone_test/screen/detail_screen.dart';
 
 // 상태변화가 없기 때문에 StatelessWidget 사용
 class CircleSlider extends StatelessWidget {
@@ -23,7 +24,7 @@ class CircleSlider extends StatelessWidget {
             child : ListView(
               scrollDirection: Axis.horizontal, // 가로 방향 스크롤
               // 실제적인 위젯들을 만드는 부분 - 별도의 함수로 분리
-              children : makeCircleImages(movies),
+              children : makeCircleImages(movies, context),
             ),
           ),
         ],
@@ -32,13 +33,22 @@ class CircleSlider extends StatelessWidget {
   }
 }
 
-List<Widget> makeCircleImages(List<Movie> movies) {
+List<Widget> makeCircleImages(List<Movie> movies, BuildContext context) {
   List<Widget> results = [];
 
   for(var i = 0; i<movies.length; i++) {
     results.add(
       InkWell(
-        onTap : () {},
+        onTap : () {
+          Navigator.of(context).push(MaterialPageRoute<Null>(
+            fullscreenDialog: true, 
+            builder : (BuildContext context) {
+              return DetailScreen(
+                  movie : movies[i],
+              );
+            }
+          ));
+        },
         child : Container(
           padding : EdgeInsets.only(right:30),
           child : Align(
