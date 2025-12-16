@@ -138,11 +138,13 @@ class _DetailScreenState extends State<DetailScreen>{
                   ),
                 ],
               ),
+              // 메뉴바 생성
               Container(
                 color : Colors.black26,
                 child : Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children : <Widget> [
+                    // 내가 찜한 콘텐츠 버튼
                     Container(
                       padding : EdgeInsets.fromLTRB(20, 10, 20, 10),
                       child : InkWell(
@@ -162,6 +164,46 @@ class _DetailScreenState extends State<DetailScreen>{
                             ),
                           ],
                         ),
+                      ),
+                    ),
+                    // 평가 (thumb_up) 버튼
+                    Container(
+                      padding : EdgeInsets.fromLTRB(20, 10, 20, 10),
+                      child : Container(
+                        child : Column(
+                          children: <Widget>[
+                            Icon(Icons.thumb_up),
+                            Padding(
+                              padding : EdgeInsets.all(5),),
+                            Text(
+                              '평가',
+                              style : TextStyle(
+                                fontSize : 11,
+                                color : Colors.white60,
+                              ),
+                            ),
+                          ]
+                        ,)
+                      ),
+                    ),
+                    // 공유 버튼
+                    Container(
+                      padding : EdgeInsets.fromLTRB(20, 10, 20, 10),
+                      child : Container(
+                        child : Column(
+                          children: <Widget>[
+                            Icon(Icons.send),
+                            Padding(
+                              padding : EdgeInsets.all(5),),
+                            Text(
+                              '공유',
+                              style : TextStyle(
+                                fontSize : 11,
+                                color : Colors.white60,
+                              ),
+                            ),
+                          ]
+                        ,)
                       ),
                     ),
                   ],
