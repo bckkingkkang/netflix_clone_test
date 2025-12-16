@@ -67,6 +67,7 @@ class _DetailScreenState extends State<DetailScreen>{
                                     style : TextStyle(fontSize : 13),
                                   )
                                 ),
+                                // 영화 title
                                 Container(
                                   padding :EdgeInsets.all(7),
                                   child : Text(
@@ -78,6 +79,7 @@ class _DetailScreenState extends State<DetailScreen>{
                                     ),
                                   ),
                                 ),
+                                // 재생 버튼
                                 Container(
                                   padding: EdgeInsets.all(3),
                                   width: double.infinity,
@@ -100,10 +102,26 @@ class _DetailScreenState extends State<DetailScreen>{
                                       ],
                                     ),
                                   ),
-                                  
                                 ),
+                                // 영화에 대한 설명을 표시할 Container
                                 Container(
-
+                                  padding : EdgeInsets.all(5),
+                                  child : Text(
+                                    // 대략적으로 표시(생략)
+                                    widget.movie.toString()
+                                  ),
+                                ),
+                                // 영화 출연진
+                                Container(
+                                  padding : EdgeInsets.all(5),
+                                  alignment: Alignment.centerLeft,
+                                  child : Text(
+                                    '출연 : 현빈, 손예진, 서지혜\n제작자 : 이정호, 박지은',
+                                    style : TextStyle(
+                                      color : Colors.white60,
+                                      fontSize : 12,
+                                    ),
+                                  ),
                                 ),
                               ]
                             )
