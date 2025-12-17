@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:netflix_clone_test/model/model_movie.dart';
 import 'package:netflix_clone_test/widget/box_slider.dart';
@@ -15,52 +16,28 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
 
   // 영화 더미 데이터 생성
-  List<Movie> movies = [
-    Movie.fromMap(
-      {
-        // movies 안에 들어갈 샘플 데이터
-        'title' : '사랑의 불시착',
-        'keyword' : '사랑/로맨스',
-        'poster' : 'images/test_movie_1.png',
-        'like' : false,
-      }
-    ), 
-    Movie.fromMap(
-      {
-        // movies 안에 들어갈 샘플 데이터
-        'title' : '사랑의 불시착',
-        'keyword' : '사랑/로맨스',
-        'poster' : 'images/test_movie_1.png',
-        'like' : false,
-      }
-    ),
-    Movie.fromMap(
-      {
-        // movies 안에 들어갈 샘플 데이터
-        'title' : '사랑의 불시착',
-        'keyword' : '사랑/로맨스',
-        'poster' : 'images/test_movie_1.png',
-        'like' : false,
-      }
-    ),
-    Movie.fromMap(
-      {
-        // movies 안에 들어갈 샘플 데이터
-        'title' : '사랑의 불시착',
-        'keyword' : '사랑/로맨스',
-        'poster' : 'images/test_movie_1.png',
-        'like' : false,
-      }
-    ),
-  ];
+  FirebaseFirestore firestore = FirebaseFirestore.instance;
+  late Stream<QuerySnapshot> streamData;
 
   @override
   void initState() {
     super.initState();
+    streamData = firestore.collection('moive').snapshots();
   }
 
-  @override
-  Widget build(BuildContext context) {
+  // streamData로부터 데이터를 추출하여 위젯으로 만들기
+  Widget _fetchData(BuildContext context) {
+    return StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
+      stream : FirebaseFirestore.instance.collection('movie').snapshots(),
+      builder: (context, snapshot) {
+        if(!snapshot.hasData) return LinearProgressIndicator();
+        return _buildBody(context, snapshot.data!.docs);
+      },
+    );
+  }
+
+  Widget _buildBody(BuildContext context, List<DocumentSnapshot<Map<String, dynamic>>> snapshot) {
+    List<Movie> movies = snapshot.map((d) => Movie.fromSnapshot(d)).toList(); 
     // return TopBar();
     // 기존 TopBar를 지우고 ListView 안에 Stack을 넣는 구조로 수정
     return ListView(children : <Widget>[
@@ -73,6 +50,24 @@ class _HomeScreenState extends State<HomeScreen> {
       CircleSlider(movies: movies),
       BoxSlider(movies: movies,)
     ]);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    // return TopBar();
+    // 기존 TopBar를 지우고 ListView 안에 Stack을 넣는 구조로 수정
+    /*return ListView(children : <Widget>[
+      Stack(children : <Widget>[
+          // Stack의 경우 children 안에 선언한 순서대로 쌓임
+          CarouselImage(movies: movies),
+          TopBar(),
+        ]
+      ),
+      CircleSlider(movies: movies),
+      BoxSlider(movies: movies,)
+    ]);*/
+    // 해당 내용 _buildBody로 옮김
+    return _fetchData(context);
   }
 }
 
