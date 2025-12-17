@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "709546765254",
+    "project_id": "netflix-clone-test-be9f2",
+    "storage_bucket": "netflix-clone-test-be9f2.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:709546765254:android:b4fbabb07121de15bce0c7",
+        "android_client_info": {
+          "package_name": "com.example.netflixCloneTest"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLNH33jQKq-KTwtOrYKMbURFJ31MVYMvs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:709546765254:android:46a8304b0ffd9ccabce0c7",
+        "android_client_info": {
+          "package_name": "com.example.netflix_clone_test"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLNH33jQKq-KTwtOrYKMbURFJ31MVYMvs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

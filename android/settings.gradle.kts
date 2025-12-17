@@ -15,6 +15,11 @@ pluginManagement {
         mavenCentral()
         gradlePluginPortal()
     }
+
+    plugins {
+        // 🔥 Firebase Google Services 플러그인 등록 (여기가 핵심)
+        id("com.google.gms.google-services") version "4.4.4" apply false
+    }
 }
 
 plugins {
