@@ -38,7 +38,7 @@ class _CarouselImageState extends State<CarouselImage> {
     // 원본 영화 데이터
     movies = widget.movies;
     // UI용 이미지 위젯
-    images = movies.map((m) => Image.asset(m.poster)).toList();
+    images = movies.map((m) => Image.network(m.poster)).toList();
     // 키워드 리스트
     keywords = movies.map((m) => m.keyword).toList();
     // 좋아요 상태 리스트
