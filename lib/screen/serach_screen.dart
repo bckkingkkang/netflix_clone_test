@@ -86,6 +86,29 @@ class _SearchScreenState extends State<SearchScreen> {
                     ),
                   ),
                 ),
+                // 취소 버튼 (포커스가 있는 경우에만 나오도록)
+                focusNode.hasFocus 
+                  ? Expanded(
+                      child : TextButton(
+                        child : Text(
+                          '취소', 
+                          style : TextStyle(
+                            color : Colors.white60,
+                          ),
+                        ),
+                        onPressed: () {
+                          setState((){
+                            _filter.clear();
+                            _searchText = "";
+                            focusNode.unfocus();
+                          });
+                        },
+                      )
+                  )
+                  : Expanded(
+                      flex : 0,
+                      child : Container(),
+                  )
               ],
             ),
           )
