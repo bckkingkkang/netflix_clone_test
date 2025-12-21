@@ -10,6 +10,7 @@ class likeScreen extends StatefulWidget {
 
 class _likeScreenState extends State<likeScreen> {
   Widget _buildBody(BuildContext context) {
+    // StreamBuilder를 통해 영화 데이터를 가져온다
     return StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
       stream: FirebaseFirestore.instance.collection('movie').where('like', isEqualTo: true).snapshots(),
       builder: (context, snapshot) {
@@ -49,6 +50,35 @@ class _likeScreenState extends State<likeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // StreamBuilder를 통해 영화 데이터를 가져온다
+    // 화면 전체 구조 작성
+    return Container(
+      child : Column(
+        children : <Widget> [
+          Container(
+            padding : EdgeInsets.fromLTRB(20, 27, 20, 7),
+            child : Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children : <Widget> [
+                Image.asset(
+                  'images/Netflix_test.png',
+                  fit : BoxFit.contain,
+                  height : 25,
+                ),
+                Container(
+                  padding : EdgeInsets.only(left : 30),
+                  child : Text(
+                    '내가 찜한 콘텐츠',
+                    style : TextStyle(
+                      fontSize : 14,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          _buildBody(context),
+        ],
+      ),
+    );
   }
 }
