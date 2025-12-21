@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:netflix_clone_test/screen/home_screen.dart';
+import 'package:netflix_clone_test/screen/like_screen.dart';
 import 'package:netflix_clone_test/screen/more_screen.dart';
 import 'package:netflix_clone_test/screen/serach_screen.dart';
 import 'package:netflix_clone_test/widget/bottom_bar.dart';
@@ -42,10 +43,7 @@ class _MyAppState extends State<MyApp> {
             children : <Widget> [
               HomeScreen(),
               SearchScreen(),
-              Container(child : Center(
-                  child : Text('Save'),
-                )
-              ),
+              likeScreen(),
               MoreScreen(),
             ]
           ),
